@@ -1,0 +1,47 @@
+﻿<Page
+    x:Class="PeekABoo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PeekABoo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="Platform">
+
+
+                <VisualState x:Name="Happy">
+                    <VisualState.StateTriggers>
+
+                        <local:PeekTrigger Mode="FaceDetected"></local:PeekTrigger>
+
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="MyImage.Source" Value="Assets\happy.jpg"></Setter>
+
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="Sad">
+                    <VisualState.StateTriggers>
+
+                        <local:PeekTrigger Mode="FaceNotDetected"></local:PeekTrigger>
+
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="MyImage.Source" Value="Assets\sad.jpg"></Setter>
+
+                    </VisualState.Setters>
+                </VisualState>
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Image x:Name="MyImage" Stretch="UniformToFill"></Image>
+        
+    </Grid>
+</Page>
